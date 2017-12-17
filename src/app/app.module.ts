@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import {
@@ -6,13 +7,16 @@ import {
 } from './app.store';
 
 import { AppComponent } from './app.component';
+import { CartaMnemonicaComponent } from './carta-mnemonica/carta-mnemonica.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CartaMnemonicaComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   providers: [
     appStoreProviders

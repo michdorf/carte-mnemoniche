@@ -1,0 +1,60 @@
+.container {
+    margin: 28px auto;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    perspective: 800px;
+    box-sizing: content-box;
+}
+
+.carta {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    transform-origin: right center; /* advanced flip */
+}
+
+.carta.anim2 {
+    transform-origin: right center;
+}
+
+.carta figure {
+    margin: 0;
+    padding: 12px;
+    border-radius: 8px;
+
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.carta .fronte {
+    background: red;
+}
+
+.carta .dorso {
+    background: blue;
+    transform: rotateY( 180deg);
+}
+
+.carta .dorso.grande, .carta .fronte.grande {
+    font-size: 48px;
+}
+.carta .dorso.medio, .carta .fronte.medio {
+    font-size: 26px;
+}
+.carta .dorso.piccolo, .carta .fronte.piccolo {
+    font-size: 18px;
+}
+
+.carta.flipped {
+    transform: rotateY( 180deg);
+}
+
+.carta.anim2.flipped {
+    transform: translateX( -100%) rotateY( -180deg);
+}
