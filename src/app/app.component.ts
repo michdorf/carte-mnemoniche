@@ -8,6 +8,8 @@ import {
   AppState,
   getSomethingSpecific
 } from './app.reducer';
+import { CartaMnemonica } from './carta-mnemonica/carta-mnemonica.model';
+import { CarteService } from './carte.service';
 
 
 @Component({
@@ -18,8 +20,14 @@ import {
 export class AppComponent {
   title = 'app';
   appPart: AppPart;
+  carte: CartaMnemonica[];
 
-  constructor(@Inject(AppStore) private store: Redux.Store<AppState>) {
+  constructor(@Inject(AppStore) private store: Redux.Store<AppState>,
+            private cs: CarteService) {
+    this.carte = [];
+    cs.onupdate.subscribe(carte => {
+      this.carte = carte;
+    })
     store.subscribe(() => this.updateState());
     this.updateState();
   }

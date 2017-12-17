@@ -1,6 +1,10 @@
 <section class="container">
   <div class="carta" (click)="flip()" [@capovolto]="state" #carta>
-    <figure class="fronte" #fronte>{{testo_frontale}}</figure>
-    <figure class="dorso" #dorso>{{testo_dorsale}}</figure>
+    <figure class="fronte" #fronte>
+      <span [innerHTML]="testo_frontale"></span>
+    </figure>
+    <figure class="dorso" #dorso>
+      <span [innerHTML]="testo_dorsale"></span>
+    </figure>
   </div>
 </section>

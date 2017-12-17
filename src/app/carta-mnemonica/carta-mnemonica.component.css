@@ -22,8 +22,6 @@
 
 .carta figure {
     margin: 0;
-    padding: 12px;
-    border-radius: 8px;
 
     display: block;
     position: absolute;
@@ -32,13 +30,23 @@
     backface-visibility: hidden;
 }
 
-.carta .fronte {
-    background: red;
+.carta .dorso {
+    transform: rotateY( 180deg);
 }
 
-.carta .dorso {
+.carta .fronte > * {
+    background: red;
+}
+.carta .dorso > * {
     background: blue;
-    transform: rotateY( 180deg);
+}
+
+.carta .fronte > *, .carta .dorso > * {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
 }
 
 .carta .dorso.grande, .carta .fronte.grande {

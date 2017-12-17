@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { CartaMnemonica } from './carta-mnemonica.model';
 
 enum DimensioneFont {
   GRANDE,
@@ -31,6 +32,7 @@ enum DimensioneFont {
 })
 export class CartaMnemonicaComponent implements OnInit {
   @Input('flipstate') state;
+  @Input('carta') carta: CartaMnemonica;
   @ViewChild('carta') carta_elem: ElementRef;
   @ViewChild('fronte') fronte_elem: ElementRef;
   @ViewChild('dorso') dorso_elem: ElementRef;
@@ -38,8 +40,6 @@ export class CartaMnemonicaComponent implements OnInit {
   testo_dorsale = '';
 
   constructor() {
-    this.testo_frontale = "Dette er forsiden";
-    this.testo_dorsale = "Dette er bagsiden.\nHer er lidt mere tekst end som så. Men uden at det bliver for meget. Eller?\nJeg er jo glad for meget lange beskrivelser..";
   }
 
   dimensione_font(testo): DimensioneFont {
@@ -76,6 +76,9 @@ export class CartaMnemonicaComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.testo_frontale = this.carta.fronte.testo_formattato;
+    this.testo_dorsale = this.carta.dorso.testo_formattato;
+    
     this.state = this.state || 'anteriore';
     this.ingrandisci_testo();
   }

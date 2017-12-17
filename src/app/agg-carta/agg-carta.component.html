@@ -1,0 +1,24 @@
+<button type="button" (click)="nuova()">Nuovo</button>
+
+<form (submit)="salva()">
+  <label for="fronte_plaintext">Testo sul prima pagina: </label><br>
+  <textarea name="fronte_plaintext" id="fronte_plaintext" [(ngModel)]="carta.fronte.plaintext"></textarea>
+  <br>
+  <br>
+
+  <label for="dorso_plaintext">Testo sul seconda pagina: </label><br>
+  <textarea name="dorso_plaintext" id="dorso_plaintext" [(ngModel)]="carta.dorso.plaintext"></textarea>
+  <br>
+  <br>
+
+  <label for="fronte_imagine">Imagine sul retro: </label><br>
+  <input type="file" name="fronte_imagine" id="fronte_imagine"><br>
+
+  <label for="dorso_imagine">Imagine sul retro: </label><br>
+  <input type="file" name="dorso_imagine" id="dorso_imagine"><br>
+  <br>
+  <button type="submit">
+    <ng-container *ngIf="esistente">Salva</ng-container>
+    <ng-container *ngIf="!esistente">Aggiungi</ng-container>
+  </button>
+</form>

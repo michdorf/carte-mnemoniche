@@ -3,10 +3,17 @@
   <h1>
     Welcome to {{title}}!
   </h1>
-  
-  <app-carta-mnemonica></app-carta-mnemonica>
 
-  <button (click)="action()">Go!</button>
+  <app-carta-mnemonica *ngFor="let carta of carte" [carta]="carta"></app-carta-mnemonica>
+
+  <pre>{{carte | json}}</pre>
+
+  <app-agg-carta></app-agg-carta>
+
+  <br>
+  <hr>
+  <br>
   <pre>{{appPart | json}}</pre>
+  <button (click)="action()">Go!</button>
 </div>
 
